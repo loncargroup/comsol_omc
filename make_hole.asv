@@ -1,4 +1,4 @@
-function build_hole(hole_params,wp,i)
+function make_hole(hole_params,wp,i)
 %BUILD_HOLE: This function takes a set of hole_parameters and makes a hole
 %in a given workplane
 
@@ -8,6 +8,8 @@ elseif strcmp(hole_params.beamType,'hole')
     build_ellipse(wp,hole_params,i);
 elseif strcmp(hole_params.beamType,'tri')
     build_tri(wp,hole_params,i);
+else
+    
 end
 end
 
@@ -26,7 +28,7 @@ function build_rib(wp,hole_params,i)
     a = hole_params.a;
     hx=hole_params.hx;
     hy=hole_params.hy;
-    beamW=hole_params.beamW;
+    beamW=hole_params.w;
     pos=hole_params.pos;
     curveOneName = ['curveOne',num2str(i)];
     curveOne = wp.geom.create(curveOneName, 'ParametricCurve');
